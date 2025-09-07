@@ -8,13 +8,13 @@ const { carInfo } = storeToRefs(homeStore);
 // const carInfo = computed(() => homeStore.carInfo);
 
 onUpdated(() => {
-  homeStore.updateCatchAllRenderCount();
-  console.log("CatchAll re-render:", homeStore.catchAllRenderCount);
+  homeStore.updateSelectAllRenderCount();
+  console.log("CatchAll re-render:", homeStore.selectAllRenderCount);
 });
 </script>
 
 <template>
-  <div class="p-2 border">
+  <div>
     <h3>Catch Completed Information</h3>
     <p>License Plate: {{ carInfo.licensePlate }}</p>
   </div>

@@ -3,6 +3,6 @@ export interface HomeState {
     licensePlate: string;
     carBrand: string;
   };
-  catchAllRenderCount: number;
-  catchOneRenderCount: number;
+  selectAllRenderCount: number;
+  selectOneRenderCount: number;
 }

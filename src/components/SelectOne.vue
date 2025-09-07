@@ -6,13 +6,13 @@ const homeStore = useHomeStore();
 const licensePlate = computed(() => homeStore.carInfo.licensePlate);
 
 onUpdated(() => {
-  homeStore.updateCatchOneRenderCount();
-  console.log("CatchOne re-render:", homeStore.catchOneRenderCount);
+  homeStore.updateSelectOneRenderCount();
+  console.log("CatchOne re-render:", homeStore.selectOneRenderCount);
 });
 </script>
 
 <template>
-  <div class="p-2 border">
+  <div>
     <h3>Catch only one Information</h3>
     <p>License Plate: {{ licensePlate }}</p>
   </div>

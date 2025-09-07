@@ -7,8 +7,8 @@ export const useHomeStore = defineStore("home", {
       licensePlate: "MP",
       carBrand: "LAMBORGHINI",
     },
-    catchAllRenderCount: 0,
-    catchOneRenderCount: 0,
+    selectAllRenderCount: 0,
+    selectOneRenderCount: 0,
   }),
 
   getters: {},
@@ -20,11 +20,11 @@ export const useHomeStore = defineStore("home", {
     updateCarBrand(newBrand: string): void {
       this.carInfo = { ...this.carInfo, carBrand: newBrand };
     },
-    updateCatchAllRenderCount(): void {
-      this.catchAllRenderCount++;
+    updateSelectAllRenderCount(): void {
+      this.selectAllRenderCount++;
     },
-    updateCatchOneRenderCount(): void {
-      this.catchOneRenderCount++;
+    updateSelectOneRenderCount(): void {
+      this.selectOneRenderCount++;
     },
   },
 });
