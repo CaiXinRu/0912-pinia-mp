@@ -9,13 +9,12 @@ const { carInfo } = storeToRefs(homeStore);
 
 onUpdated(() => {
   homeStore.updateSelectAllRenderCount();
-  console.log("CatchAll re-render:", homeStore.selectAllRenderCount);
 });
 </script>
 
 <template>
   <div>
-    <h3>Catch Completed Information</h3>
+    <h3>Select Completed Object</h3>
     <p>License Plate: {{ carInfo.licensePlate }}</p>
   </div>
 </template>

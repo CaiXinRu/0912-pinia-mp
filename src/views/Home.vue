@@ -1,12 +1,11 @@
 <template>
   <div>
     <div>
-      <h2>歡迎來到 Vue + Pinia 專案</h2>
-      <p>這是一個使用 Vue 3 和 Pinia 狀態管理建立的示範專案</p>
+      <h1>The Magic we Pinia is now!</h1>
+      <p>Mastering Pinia’s Charm for Instant State Magic</p>
     </div>
 
-    <h1>Car Brand: {{ homeStore.carInfo.carBrand }}</h1>
-    <br />
+    <h2>Car Brand: {{ homeStore.carInfo.carBrand }}</h2>
     <SelectAll />
     <p>SelectAll re-render: {{ selectAllRenderCount }}</p>
     <br />

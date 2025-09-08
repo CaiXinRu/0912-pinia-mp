@@ -15,7 +15,7 @@ export const useHomeStore = defineStore("home", {
 
   actions: {
     updateLicensePlate(newLicensePlate: string): void {
-      this.carInfo.licensePlate = newLicensePlate;
+      this.carInfo = { ...this.carInfo, licensePlate: newLicensePlate };
     },
     updateCarBrand(newBrand: string): void {
       this.carInfo = { ...this.carInfo, carBrand: newBrand };
