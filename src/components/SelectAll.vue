@@ -13,8 +13,11 @@ onUpdated(() => {
 </script>
 
 <template>
-  <div>
+  <div class="component-card tech-card">
     <h3>Select Completed Object</h3>
-    <p>License Plate: {{ carInfo.licensePlate }}</p>
+    <div class="data-display">License Plate: {{ carInfo.licensePlate }}</div>
+    <div class="component-info">
+      <span class="info-badge">Full Object Selection</span>
+    </div>
   </div>
 </template>

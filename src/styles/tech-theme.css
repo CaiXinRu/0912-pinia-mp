@@ -1,0 +1,565 @@
+/* 科技感主題樣式 */
+:root {
+  /* 顏色變數 */
+  --tech-red: #e2231aff;
+  --tech-dark: #212121ff;
+  --tech-orange: #f67031ff;
+  --tech-yellow: #ffa400ff;
+  --tech-gray: #999999ff;
+
+  /* 漸變色 */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--tech-red) 0%,
+    var(--tech-orange) 100%
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    var(--tech-orange) 0%,
+    var(--tech-yellow) 100%
+  );
+  --gradient-dark: linear-gradient(135deg, var(--tech-dark) 0%, #333 100%);
+
+  /* 陰影 */
+  --shadow-glow: 0 0 20px rgba(226, 35, 26, 0.3);
+  --shadow-glow-orange: 0 0 20px rgba(246, 112, 49, 0.3);
+  --shadow-glow-yellow: 0 0 20px rgba(255, 164, 0, 0.3);
+  --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  /* 字體 */
+  --font-tech: "Huninn", sans-serif;
+  --font-main: "Huninn", sans-serif;
+}
+
+/* 全域樣式 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: var(--tech-white);
+  color: var(--tech-dark);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* 背景動畫效果 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(226, 35, 26, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(246, 112, 49, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 164, 0, 0.05) 0%,
+      transparent 50%
+    );
+  z-index: -1;
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* 主容器 */
+#app {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 標題樣式 */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: "Huninn", sans-serif;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-shadow: 0 0 30px rgba(226, 35, 26, 0.5);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* 放大字母樣式 */
+.large-letter {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+@keyframes titleGlow {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.2);
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--tech-yellow);
+  text-align: center;
+  font-family: "Huninn", sans-serif;
+  font-weight: 600;
+  text-shadow: 0 0 15px rgba(255, 164, 0, 0.5);
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--gradient-secondary);
+  border-radius: 1px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--tech-orange);
+  font-family: "Huninn", sans-serif;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(246, 112, 49, 0.3);
+}
+
+/* 段落樣式 */
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+}
+
+/* 卡片樣式 */
+.tech-card {
+  background: var(--tech-dark);
+  border: 1px solid rgba(226, 35, 26, 0.3);
+  border-radius: 15px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-deep), var(--shadow-glow);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tech-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.tech-card:hover::before {
+  left: 100%;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-deep), var(--shadow-glow-orange);
+  border-color: var(--tech-orange);
+}
+
+/* 按鈕樣式 */
+.tech-button {
+  background: var(--tech-orange);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Huninn", sans-serif;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-glow);
+}
+
+.tech-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.tech-button:hover::before {
+  left: 100%;
+}
+
+.tech-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-orange);
+  background: var(--gradient-secondary);
+}
+
+.tech-button:active {
+  transform: translateY(0);
+}
+
+/* 數據顯示樣式 */
+.data-display {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--tech-gray);
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: "Huninn", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--tech-yellow);
+  text-shadow: 0 0 10px rgba(255, 164, 0, 0.3);
+  position: relative;
+}
+
+.data-display::before {
+  content: ">";
+  position: absolute;
+  left: -20px;
+  color: var(--tech-red);
+  font-weight: bold;
+}
+
+/* 計數器樣式 */
+.counter {
+  display: flex;
+  background: var(--gradient-dark);
+  border: 1px solid var(--tech-orange);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-family: "Huninn", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--tech-orange);
+  box-shadow: var(--shadow-glow-orange);
+  animation: counterPulse 2s ease-in-out infinite;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 計數器數字放大樣式 */
+.counter-number {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--tech-yellow);
+  text-shadow: 0 0 15px rgba(255, 164, 0, 0.8);
+  margin-left: 0.3em;
+}
+
+@keyframes counterPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .tech-card {
+    padding: 1.5rem;
+  }
+
+  .tech-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 載入動畫 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.tech-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: lineMove 3s linear infinite;
+}
+
+@keyframes lineMove {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 組件卡片樣式 */
+.component-card {
+  transition: all 0.3s ease;
+}
+
+.component-card:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* 組件資訊標籤 */
+.component-info {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.info-badge {
+  display: inline-block;
+  background: var(--gradient-dark);
+  border: 1px solid var(--tech-gray);
+  border-radius: 15px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--tech-gray);
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 主標題區域 */
+.hero-section {
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--tech-gray);
+  font-family: "Huninn", sans-serif;
+  font-weight: 300;
+}
+
+/* 組件展示區域 */
+.components-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+  align-items: center;
+}
+
+.component-wrapper {
+  position: relative;
+}
+
+/* 控制區域 */
+.controls-section {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 主容器 */
+.home-container {
+  width: 870px;
+  margin: 0 auto;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* 脈衝動畫 */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 35, 26, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(226, 35, 26, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 35, 26, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* 掃描線效果 */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  z-index: 1000;
+  animation: scan 4s linear infinite;
+  opacity: 0.6;
+}
+
+/* 響應式設計更新 */
+@media (max-width: 768px) {
+  .components-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tech-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .home-container {
+    padding: 1rem;
+  }
+}
+
+/* 載入動畫增強 */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+/* 數據更新動畫 */
+@keyframes dataUpdate {
+  0% {
+    background-color: rgba(246, 112, 49, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    background-color: rgba(255, 164, 0, 0.5);
+    transform: scale(1.05);
+  }
+  100% {
+    background-color: transparent;
+    transform: scale(1);
+  }
+}
+
+.data-updated {
+  animation: dataUpdate 0.8s ease-out;
+}

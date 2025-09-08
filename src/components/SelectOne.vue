@@ -11,8 +11,11 @@ onUpdated(() => {
 </script>
 
 <template>
-  <div>
+  <div class="component-card tech-card">
     <h3>Select Single Property</h3>
-    <p>License Plate: {{ licensePlate }}</p>
+    <div class="data-display">License Plate: {{ licensePlate }}</div>
+    <div class="component-info">
+      <span class="info-badge">Single Property Selection</span>
+    </div>
   </div>
 </template>
