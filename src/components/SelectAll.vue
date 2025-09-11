@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { useHomeStore } from "@/stores/home";
-import { storeToRefs } from "pinia";
-import { onUpdated } from "vue";
+import { computed, onUpdated } from "vue";
 
 const homeStore = useHomeStore();
-const { carInfo } = storeToRefs(homeStore);
-// const carInfo = computed(() => homeStore.carInfo);
+// const { carInfo } = storeToRefs(homeStore);
+const carInfo = computed(() => homeStore.carInfo);
 
 onUpdated(() => {
   homeStore.updateSelectAllRenderCount();
