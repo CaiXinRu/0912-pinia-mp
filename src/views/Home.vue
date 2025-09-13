@@ -12,7 +12,7 @@
     </div>
 
     <div class="tech-card">
-      <h2>Car Brand: {{ homeStore.carInfo.carBrand }}</h2>
+      <h2>Car Brand: {{ carInfo.carBrand }}</h2>
     </div>
 
     <div class="components-section">
@@ -67,5 +67,6 @@ import "@/styles/tech-theme.css";
 import { storeToRefs } from "pinia";
 
 const homeStore = useHomeStore();
-const { selectAllRenderCount, selectOneRenderCount } = storeToRefs(homeStore);
+const { carInfo, selectAllRenderCount, selectOneRenderCount } =
+  storeToRefs(homeStore);
 </script>
